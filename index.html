@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PolicyDesk AI — End-to-end case study | Vikram Seenivasan</title>
+<meta name="description" content="AI PM case study, end to end: benchmark, PRD, design, development, AI tools and APIs, evaluation and rollout for a 24/7 insurance service assistant. Concept for New York Life.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B2D59;--blue:#0067B1;--sky:#3DA9E0;--violet:#7B6FE0;--rose:#E7889B;
+  --grad:linear-gradient(90deg,#3DA9E0,#2F7FD3 50%,#7B6FE0);--grad-text:linear-gradient(90deg,#2BA8E0,#2F6FD0 45%,#7B6FE0 75%,#E7889B);
+  --bg:#FAF8F5;--surface:rgba(255,255,255,.85);--solid:#fff;--surface2:#F2F5FB;--tint:#EAF3FC;--text:#0B2D59;--muted:#5A6782;--line:#E5E9F2;--accent:#0067B1;--ok:#14915F;--warn:#B65A0E;
+  --blob1:rgba(61,169,224,.18);--blob2:rgba(123,111,224,.16);--blob3:rgba(231,136,155,.13);--shadow:0 16px 44px rgba(11,45,89,.07);
+  color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#081325;--surface:rgba(16,30,56,.85);--solid:#0F1E38;--surface2:#15284A;--tint:#132C52;--text:#EAF1FB;--muted:#A3B3CF;--line:#22375D;--accent:#5AB0F0;--ok:#43CF95;--warn:#F2A660;--blob1:rgba(61,169,224,.12);--blob2:rgba(123,111,224,.12);--blob3:rgba(231,136,155,.07);--shadow:0 16px 44px rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#081325;--surface:rgba(16,30,56,.85);--solid:#0F1E38;--surface2:#15284A;--tint:#132C52;--text:#EAF1FB;--muted:#A3B3CF;--line:#22375D;--accent:#5AB0F0;--ok:#43CF95;--warn:#F2A660;--blob1:rgba(61,169,224,.12);--blob2:rgba(123,111,224,.12);--blob3:rgba(231,136,155,.07);--shadow:0 16px 44px rgba(0,0,0,.35);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;color:var(--text);font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;
+  background:radial-gradient(40vw 40vw at 95% 3%,var(--blob2),transparent 70%),radial-gradient(45vw 45vw at 2% 60%,var(--blob1),transparent 70%),radial-gradient(35vw 35vw at 70% 95%,var(--blob3),transparent 70%),var(--bg);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--solid)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:6px}
+h1,h2,h3{line-height:1.2;margin:0 0 .5em}
+h2{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(1.9rem,4vw,2.6rem)}
+h3{font-size:1.05rem}
+p{margin:0 0 1em;max-width:72ch}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.muted{color:var(--muted)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:58px}
+.top b{white-space:nowrap}
+.top nav{display:flex;gap:14px;overflow-x:auto;flex:1;scrollbar-width:none}
+.top nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.88rem;white-space:nowrap}
+.themebtn{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);display:grid;place-items:center;cursor:pointer;flex:none}
+.themebtn svg{width:17px;height:17px}
+.hero{padding:64px 0 40px}
+.kicker{color:var(--muted);font-weight:600}
+.display{font-family:"DM Serif Display",Georgia,serif;font-weight:400;font-size:clamp(2.5rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.015em;margin:14px 0 18px;max-width:17ch}
+.display span{display:block;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{font-size:1.15rem;color:var(--muted);max-width:58ch}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:12px;padding:11px 20px;font-weight:700;text-decoration:none;background:var(--grad);color:#fff;margin:6px 8px 0 0}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:30px}
+.glass{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.meta div{padding:16px 18px}
+.meta span{display:block;color:var(--muted);font-size:.8rem}
+.meta b{font-size:.95rem}
+section{padding:56px 0;border-top:1px solid var(--line)}
+.stage{display:flex;align-items:center;gap:12px;color:var(--accent);font-weight:700;font-size:.9rem;margin-bottom:6px}
+.stage i{width:30px;height:30px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-style:normal;font-size:.85rem}
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--solid);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.card p:last-child{margin:0}
+.card .muted{font-size:.93rem}
+.big{font-family:"DM Serif Display",Georgia,serif;font-size:2.6rem;line-height:1;display:block;margin-bottom:6px;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tw{overflow-x:auto;background:var(--solid);border:1px solid var(--line);border-radius:16px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+thead th{border-top:0;background:var(--surface2);font-size:.8rem;color:var(--muted);white-space:nowrap}
+td code,p code,li code{font-size:.85em;background:var(--surface2);padding:1px 6px;border-radius:6px}
+.timeline{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;counter-reset:t}
+.timeline a{display:block;text-decoration:none;color:var(--text);background:var(--solid);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.86rem}
+.timeline a::before{counter-increment:t;content:counter(t);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--grad);color:#fff;font-weight:800;margin-bottom:8px;font-size:.82rem}
+.timeline b{display:block;font-size:.95rem}
+.timeline span{color:var(--muted)}
+.flow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.flow .n{flex:1 1 150px;background:var(--solid);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.88rem}
+.flow .n b{display:block}
+.flow .n.ai{border-color:var(--accent)}.flow .n.h{border-color:var(--warn)}
+.arrow{align-self:center;color:var(--muted);font-weight:800}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.sw{display:flex;align-items:center;gap:8px;font-size:.82rem}
+.sw i{width:30px;height:30px;border-radius:9px;border:1px solid var(--line)}
+.frame{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--solid)}
+.frame iframe{width:100%;height:760px;border:0;display:block}
+.callout{border-left:4px solid var(--violet);background:var(--tint);border-radius:12px;padding:16px 18px;margin-top:16px}
+.callout p{margin:0}
+ul.tight{margin:0;padding-left:18px}
+ul.tight li{margin:4px 0}
+pre{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:14px;overflow-x:auto;font-size:.8rem;line-height:1.5}
+.note{font-size:.84rem;color:var(--muted)}
+footer{padding:36px 0 60px;color:var(--muted);font-size:.84rem;border-top:1px solid var(--line)}
+@media (max-width:980px){.timeline{grid-template-columns:repeat(4,minmax(0,1fr))}.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.g2,.g3,.meta{grid-template-columns:minmax(0,1fr)}.timeline{grid-template-columns:repeat(2,minmax(0,1fr))}.frame iframe{height:640px}.top nav{display:none}.wrap{padding:0 14px}}
+@media (max-width:420px){.g4{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <b>PolicyDesk AI</b>
+  <nav aria-label="Sections"><a href="#process">Process</a><a href="#discover">Benchmark</a><a href="#prd">PRD</a><a href="#design">Design</a><a href="#build">Development</a><a href="#ai">AI tools &amp; APIs</a><a href="#eval">Evaluation</a><a href="#ship">Implementation</a><a href="#roi">ROI</a><a href="#demo">Demo</a></nav>
+  <button class="themebtn" id="themebtn" aria-label="Switch to dark mode"><svg id="themeico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"></svg></button>
+</div></header>
+
+<main class="wrap">
+<section class="hero" style="border-top:0">
+  <div class="kicker">AI Product Manager case study, Project 05</div>
+  <h1 class="display">PolicyDesk AI <span>a 24/7 service desk for life insurance</span></h1>
+  <p class="lede">An end-to-end build: from benchmarking an SMB AI front desk, through the PRD, design, development and AI evaluation, to a working MVP with chat, voice, email and agent booking. Concept for New York Life.</p>
+  <a class="btn" id="proto-link" href="prototype/">Open the live prototype</a><a class="btn ghost" href="https://github.com/vikram-pm/PolicyDesk-AI/blob/main/PRD.md">Read the PRD</a><a class="btn ghost" href="https://github.com/vikram-pm/PolicyDesk-AI/tree/main/eval">Evaluation files</a>
+  <div class="meta">
+    <div class="glass"><span>Role</span><b>AI Product Manager (solo)</b></div>
+    <div class="glass"><span>Scope</span><b>Benchmark, PRD, UX, build, eval, ROI</b></div>
+    <div class="glass"><span>Built with</span><b>Claude, Web Speech API, vanilla JS</b></div>
+    <div class="glass"><span>Status</span><b>Working MVP, illustrative data</b></div>
+  </div>
+</section>
+
+<section>
+  <div class="grid g4">
+    <div class="card"><span class="big">4</span><p class="muted">customer channels on one knowledge base: chat, voice, email, agent booking</p></div>
+    <div class="card"><span class="big">8</span><p class="muted">PRD features shipped in the MVP, staff portal included</p></div>
+    <div class="card"><span class="big">90%</span><p class="muted">accuracy on 10 unseen test questions</p></div>
+    <div class="card"><span class="big">100%</span><p class="muted">of sensitive cases handed to a person on unseen questions</p></div>
+  </div>
+</section>
+
+<section id="process">
+  <h2>Process, end to end</h2>
+  <p class="muted">Seven stages. Evaluation criteria were written in stage 2, before any code.</p>
+  <nav class="timeline" aria-label="Process stages">
+    <a href="#discover"><b>Benchmark</b><span>Reference product teardown</span></a>
+    <a href="#prd"><b>PRD</b><span>Scope, rules, test set</span></a>
+    <a href="#design"><b>Design</b><span>Brand, layout, states</span></a>
+    <a href="#build"><b>Develop</b><span>Widget, portal, engine</span></a>
+    <a href="#eval"><b>Evaluate</b><span>Baseline, fix, held-out</span></a>
+    <a href="#design-v2"><b>Iterate</b><span>Rebrand, dark mode, mobile</span></a>
+    <a href="#ship"><b>Implement</b><span>Deploy, pilot, rollout</span></a>
+  </nav>
+</section>
+
+<section id="discover">
+  <div class="stage"><i>1</i>Benchmark</div>
+  <h2>Copy the capability, not the context</h2>
+  <p>The brief was an MVP like <a href="https://reapdat.com" rel="noopener">Reapdat</a>, an AI front desk for small businesses. I broke it into features and asked what each one means for a regulated life insurer.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Reference feature</th><th>Built for</th><th>Insurance adaptation in PolicyDesk</th></tr></thead>
+    <tbody>
+      <tr><td>Web chat widget</td><td>Answering and booking</td><td>Answers from approved content only, source logged per reply</td></tr>
+      <tr><td>Browser voice calls</td><td>After-hours calls</td><td>Two-sentence spoken replies, typed fallback, transcript to the portal</td></tr>
+      <tr><td>Email auto-reply</td><td>Support inbox</td><td>Auto-reply only when safe; otherwise a drafted reply goes to a specialist</td></tr>
+      <tr><td>Appointment booking</td><td>Salons, clinics</td><td>Policy reviews with licensed financial professionals</td></tr>
+      <tr><td>"Needs you" queue</td><td>Uncertain cases</td><td>Became the core feature: bereavement, advice, fraud, surrender and policy-specific questions</td></tr>
+      <tr><td>One knowledge base</td><td>Consistency</td><td>Single source of truth that compliance can sign off</td></tr>
+    </tbody></table></div>
+  <div class="callout"><p><b>Key insight:</b> an SMB front desk optimises bookings. An insurer optimises trust. So handoff rules moved from an edge case to the centre of the product.</p></div>
+</section>
+
+<section id="prd">
+  <div class="stage"><i>2</i>Product requirements</div>
+  <h2>PRD: what, for whom, and how we know it works</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Problem statement</h3><p class="muted">Policyholders need fast, accurate answers to routine service questions at any hour, and sensitive requests must reach a qualified person with context, not a bot.</p></div>
+    <div class="card"><h3>Users</h3><ul class="tight muted"><li><b>Maria</b>, policyholder: wants a plain answer after hours</li><li><b>Linda</b>, beneficiary: needs warmth and a person</li><li><b>James</b>, specialist: wants routine volume gone, full context on handoffs</li></ul><p class="note" style="margin-top:8px">Assumption-based personas, validated in pilot discovery.</p></div>
+  </div>
+  <div class="tw" style="margin-top:14px"><table>
+    <thead><tr><th>#</th><th>Feature</th><th>Acceptance criteria</th></tr></thead>
+    <tbody>
+      <tr><td>F1</td><td>Web chat</td><td>KB answers with source; captures name, email, phone; “Talk to a person” escalates</td></tr>
+      <tr><td>F2</td><td>Voice call</td><td>Speech in and out, ≤2 sentences, typed fallback, transcript saved</td></tr>
+      <tr><td>F3</td><td>Email support</td><td>Auto-reply when answerable, else routed with draft; reply time logged</td></tr>
+      <tr><td>F4</td><td>Review booking</td><td>5 days × 5 slots, taken slots disabled, confirmation, contact created</td></tr>
+      <tr><td>F5</td><td>Needs you queue</td><td>Draft with AI, edit, send, save to KB; reply reaches the original channel</td></tr>
+      <tr><td>F6</td><td>Knowledge base</td><td>Add, edit, delete, file upload; applies to every channel next message</td></tr>
+      <tr><td>F7</td><td>Assistant setup</td><td>Name, tone, model, language, handoff toggles, share link and QR</td></tr>
+      <tr><td>F8</td><td>Portal</td><td>Dashboard KPIs, conversations, inbox, reviews, contacts (CSV)</td></tr>
+    </tbody></table></div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>Always to a person</h3><p class="muted">Death claims, complaints, policy surrender, fraud, requests for a person, personal advice, policy-specific questions, anything outside the knowledge base.</p></div>
+    <div class="card"><h3>Success metrics</h3><p class="muted">Answer accuracy ≥ 90%, escalation recall 100%, escalation precision ≥ 85%, email reply &lt; 60 s. Pilot: AI resolution ≥ 35%, CSAT ≥ 4.2.</p></div>
+  </div>
+  <p style="margin-top:14px"><a href="https://github.com/vikram-pm/PolicyDesk-AI/blob/main/PRD.md">Full PRD</a>: goals, non-goals, Responsible AI, rollout and risks.</p>
+</section>
+
+<section id="design">
+  <div class="stage"><i>3</i>Design</div>
+  <h2>Design: calm, trustworthy, on brand</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Version 1: Cognizant palette</h3><p class="muted">First MVP in Cognizant midnight blue and cyan, built to prove the flows end to end. Single-column landing page with a floating widget.</p></div>
+    <div class="card" id="design-v2"><h3>Version 2: New York Life brand, reference layout</h3><p class="muted">Restyled to a New York Life-style navy and blue, softened with pastel gradients from a chatbot UI reference: serif display headline, floating performance and upload cards, a three-column console (navigation, live chat, AI settings) and a mobile preview.</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card"><h3>Colour tokens</h3><div class="swatches"><span class="sw"><i style="background:#0B2D59"></i>Navy</span><span class="sw"><i style="background:#0067B1"></i>Blue</span><span class="sw"><i style="background:#3DA9E0"></i>Sky</span><span class="sw"><i style="background:#7B6FE0"></i>Violet</span><span class="sw"><i style="background:#E7889B"></i>Rose</span></div><p class="note" style="margin-top:10px">Approximations; swap in official brand values for a real engagement. No New York Life logos used.</p></div>
+    <div class="card"><h3>Type</h3><p class="muted"><b style="font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.3rem">DM Serif Display</b> for headlines, Plus Jakarta Sans for interface text. Both from Google Fonts.</p></div>
+    <div class="card"><h3>Quality floor</h3><p class="muted">Light and dark themes with a toggle, responsive to 390 px, visible keyboard focus, reduced-motion support.</p></div>
+  </div>
+  <h3 style="margin-top:22px">UX decisions that came from the insurance context</h3>
+  <div class="grid g2">
+    <div class="card"><p><b>Handoff before answer.</b> <span class="muted">Rules run first, so a bereavement message never gets a product answer.</span></p></div>
+    <div class="card"><p><b>Show the source.</b> <span class="muted">Each AI reply names the knowledge-base entry it used, which builds trust and gives compliance an audit trail.</span></p></div>
+    <div class="card"><p><b>Next steps under every escalation.</b> <span class="muted">Book a review, call or email buttons, so a handoff never ends in a dead end.</span></p></div>
+    <div class="card"><p><b>Drafts for specialists.</b> <span class="muted">The Needs you queue arrives with a reply drafted, and one click saves it back to the knowledge base.</span></p></div>
+  </div>
+</section>
+
+<section id="build">
+  <div class="stage"><i>4</i>Development</div>
+  <h2>Architecture</h2>
+  <div class="flow" aria-label="Architecture">
+    <div class="n"><b>Channels</b>Chat, voice, email, booking widget</div><span class="arrow">→</span>
+    <div class="n h"><b>Handoff rules</b>Regex rules, editable toggles</div><span class="arrow">→</span>
+    <div class="n ai"><b>Answer engine</b>Claude grounded in KB, or the rules engine</div><span class="arrow">→</span>
+    <div class="n"><b>Knowledge base</b>Approved Q&amp;A, file upload</div><span class="arrow">→</span>
+    <div class="n"><b>Service portal</b>Queue, inbox, reviews, contacts</div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><h3>Two engines, one interface</h3><p class="muted">On claude.ai, Claude writes each answer from the knowledge base and returns JSON (reply, escalate, reason, source). Everywhere else, including GitHub Pages, a keyword-scoring rules engine answers from the same knowledge base. The demo never depends on an API key.</p></div>
+    <div class="card"><h3>Deliberately simple stack</h3><p class="muted">One HTML file, vanilla JavaScript, no build step and no backend. State lives in the browser so anyone can run the full demo, and it resets cleanly.</p></div>
+  </div>
+  <h3 style="margin-top:20px">Prompt contract for the live engine</h3>
+<pre>You are {name}, the 24/7 service assistant for New York Life policyholders.
+Answer ONLY using the knowledge base below. Tone: {tone}. {creativity rule} {language}.
+Rules: never give personalised financial, tax or legal advice; never ask for SSN,
+bank details or policy number; if the topic is {handoff list}, a request for a person,
+personal advice or policy-specific, set escalate=true and reply with empathy.
+KNOWLEDGE BASE: [1..n] Q/A   CONVERSATION SO FAR: last 8 turns
+Return ONLY JSON: {"reply","escalate","reason","source","offerBooking"}</pre>
+  <p class="note">Rules also run locally first, so if the model misses a sensitive case the local check still escalates it.</p>
+</section>
+
+<section id="ai">
+  <div class="stage"><i>4b</i>AI tools and APIs</div>
+  <h2>Every tool, API and source used</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Tool or API</th><th>Used for</th><th>Where it runs</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td><b>Claude (Anthropic)</b>, build partner</td><td>Benchmark analysis, PRD drafting, code, eval harness, deck, QA</td><td>claude.ai chat</td><td><a href="https://www.anthropic.com/claude">anthropic.com/claude</a></td></tr>
+      <tr><td><b>Claude</b>, in-product answers</td><td>Grounded replies and escalation flags as JSON</td><td>claude.ai published artifact (<code>sample</code> capability)</td><td><a href="https://docs.claude.com">docs.claude.com</a></td></tr>
+      <tr><td>Rules engine (custom)</td><td>Offline answers: keyword scoring plus regex handoff rules</td><td>Browser, any host</td><td><code>prototype/index.html</code></td></tr>
+      <tr><td>Web Speech API: SpeechRecognition</td><td>Caller’s speech to text in voice calls</td><td>Chrome, Edge</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition">MDN</a></td></tr>
+      <tr><td>Web Speech API: SpeechSynthesis</td><td>Spoken replies</td><td>All modern browsers</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis">MDN</a></td></tr>
+      <tr><td>FileReader API</td><td>Knowledge upload (TXT, MD, CSV)</td><td>Browser</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader">MDN</a></td></tr>
+      <tr><td>Clipboard API</td><td>Share link, contacts CSV export</td><td>Browser</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API">MDN</a></td></tr>
+      <tr><td>Web Storage (localStorage)</td><td>Demo data and theme preference</td><td>Browser</td><td><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">MDN</a></td></tr>
+      <tr><td>qrcodejs 1.0.0</td><td>Share-link QR code</td><td>Loaded from cdnjs</td><td><a href="https://cdnjs.com/libraries/qrcodejs">cdnjs</a></td></tr>
+      <tr><td>Google Fonts</td><td>DM Serif Display, Plus Jakarta Sans</td><td>Browser</td><td><a href="https://fonts.google.com">fonts.google.com</a></td></tr>
+      <tr><td>Node.js</td><td>Evaluation harness <code>eval/run_eval.js</code></td><td>Local</td><td><a href="https://nodejs.org">nodejs.org</a></td></tr>
+      <tr><td>Playwright (Chromium)</td><td>Screenshot QA: light, dark, mobile, overflow checks</td><td>Local</td><td><a href="https://playwright.dev">playwright.dev</a></td></tr>
+      <tr><td>GitHub Pages</td><td>Hosting the case study and prototype</td><td>github.io</td><td><a href="https://pages.github.com">pages.github.com</a></td></tr>
+    </tbody></table></div>
+  <p class="note" style="margin-top:10px">Production would add telephony (for example Twilio or Amazon Connect), a CRM sync and an agent calendar. These are planned for phase 2 and not built in the MVP.</p>
+
+  <h3 style="margin-top:24px">How I worked with AI: the 4D framework</h3>
+  <div class="grid g4">
+    <div class="card"><h3>Delegation</h3><p class="muted">I owned scope, insurance rules and every product decision. Claude did research synthesis, code and drafting.</p></div>
+    <div class="card"><h3>Description</h3><p class="muted">Briefs named the client, constraints, brand and acceptance criteria; the in-product prompt is a strict JSON contract.</p></div>
+    <div class="card"><h3>Discernment</h3><p class="muted">I tested outputs instead of trusting them: the eval caught 2 unsafe answers, and screenshots caught a mobile overflow bug.</p></div>
+    <div class="card"><h3>Diligence</h3><p class="muted">Disclaimers, no client logos, placeholder data, and honest metrics: held-out score reported, not the tuned 100%.</p></div>
+  </div>
+</section>
+
+<section id="eval">
+  <div class="stage"><i>5</i>Evaluation</div>
+  <h2>Measured, fixed, then tested on unseen questions</h2>
+  <p class="muted">25 questions written before the build: 15 to answer, 5 sensitive and 5 out of scope that must escalate. Then 10 new questions it had never seen.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Metric</th><th>Baseline</th><th>After fixes</th><th>Held-out (10 unseen)</th></tr></thead>
+    <tbody>
+      <tr><td>Answer accuracy</td><td>93% (14/15)</td><td>100%</td><td><b>83% (5/6)</b></td></tr>
+      <tr><td>Escalation recall</td><td>80% (8/10)</td><td>100%</td><td><b>100% (4/4)</b></td></tr>
+      <tr><td>Escalation precision</td><td>89% (8/9)</td><td>100%</td><td><b>80% (4/5)</b></td></tr>
+      <tr><td>Overall</td><td>88%</td><td>100%</td><td><b>90%</b></td></tr>
+    </tbody></table></div>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card"><h3>Unsafe: advice</h3><p class="muted">“Should I buy term or whole life?” got a product answer. Fix: advice rule routes to a licensed professional.</p></div>
+    <div class="card"><h3>Unsafe: coverage guess</h3><p class="muted">“Does my policy cover skydiving?” needs the contract. Fix: policy-specific rule requires verification.</p></div>
+    <div class="card"><h3>False alarm</h3><p class="muted">An annuity “surrender charge” question went to retention. Fix: narrowed to surrendering a policy.</p></div>
+  </div>
+  <p style="margin-top:14px">The one held-out miss was an over-escalation, the safe direction to fail. Reproduce with <code>node eval/run_eval.js holdout.json</code>.</p>
+</section>
+
+<section id="demo">
+  <h2>Demo video</h2>
+  <p class="muted">About 3 minutes, end to end: chat, knowledge upload, voice, email, booking and the service portal.</p>
+  <video controls preload="metadata" poster="media/PolicyDesk-AI-demo-thumbnail.jpg" style="width:100%;border-radius:18px;border:1px solid var(--line);display:block"><source src="media/PolicyDesk-AI-demo.mp4" type="video/mp4"></video>
+</section>
+
+<section>
+  <h2>Live prototype</h2>
+  <p class="muted">Ask a question, then open the service portal to see it arrive. Voice calls need Chrome or Edge and microphone access.</p>
+  <div class="frame" id="frame"><iframe src="prototype/" title="PolicyDesk AI prototype" loading="lazy" allow="microphone"></iframe></div>
+</section>
+
+<section id="ship">
+  <div class="stage"><i>6–7</i>Iterate and implement</div>
+  <h2>From MVP to pilot</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Iteration log</h3><ul class="tight muted"><li>Added advice and policy-specific handoff rules after eval</li><li>Rebranded to New York Life style and reference layout</li><li>Added light and dark mode toggle</li><li>Fixed mobile overflow in the portal</li><li>Removed source labels from escalated replies</li></ul></div>
+    <div class="card"><h3>Deployment today</h3><ul class="tight muted"><li>Static site on GitHub Pages, no server</li><li>Live AI version on claude.ai</li><li>Eval runs locally with Node</li></ul></div>
+    <div class="card"><h3>Rollout plan</h3><ul class="tight muted"><li><b>Pilot, 8 weeks:</b> chat and email, one service line, every escalation reviewed</li><li><b>Phase 2:</b> telephony, CRM sync, agent calendar, identity verification</li><li><b>Phase 3:</b> read-only policy lookup, multilingual, SMS reminders</li></ul></div>
+  </div>
+  <div class="tw" style="margin-top:14px"><table>
+    <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td>Wrong answer on a regulated topic</td><td>KB-only answers, compliance sign-off, rules checked before the model</td></tr>
+      <tr><td>Over-escalation floods the queue</td><td>Track precision weekly; save specialist replies to the KB</td></tr>
+      <tr><td>Low adoption</td><td>Share link and QR on premium notices; measure containment weekly</td></tr>
+    </tbody></table></div>
+</section>
+
+<section id="roi">
+  <h2>ROI model</h2>
+  <div class="grid g3">
+    <div class="card"><span class="big">0.9×</span><p class="muted"><b>Low:</b> 80K contacts a month, 20% resolved, $5.00 per human contact</p></div>
+    <div class="card"><span class="big">4.6×</span><p class="muted"><b>Base:</b> 150K a month, 40% resolved, $6.50 per contact, about $4.1M a year</p></div>
+    <div class="card"><span class="big">13×</span><p class="muted"><b>High:</b> 250K a month, 55% resolved, $8.00 per contact</p></div>
+  </div>
+  <p class="note" style="margin-top:10px">Assumptions: $0.80 per AI-handled contact; $900K year-1 cost. Volumes are illustrative, not New York Life data.</p>
+</section>
+
+<section>
+  <h2>Learnings</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Context changes the product</h3><p class="muted">Same channels as an SMB tool, different centre of gravity: trust over bookings.</p></div>
+    <div class="card"><h3>Fail safe by design</h3><p class="muted">Over-escalating costs a minute. A wrong answer to a beneficiary costs trust.</p></div>
+    <div class="card"><h3>Test what AI builds</h3><p class="muted">AI wrote most of the code fast; the test set and screenshots are what made it trustworthy.</p></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">Vikram Seenivasan, AI Product Manager. Portfolio concept project. New York Life is named as the illustrative client; this work is not affiliated with, endorsed by or connected to New York Life. All data, phone numbers and policy terms are placeholders.</div></footer>
+
+<script>
+(function(){
+  const KEY='policydesk-theme', root=document.documentElement;
+  const MOON='<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>', SUN='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+  const cur=()=>root.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  const paint=()=>{const d=cur()==='dark'; document.getElementById('themeico').innerHTML=d?SUN:MOON; document.getElementById('themebtn').setAttribute('aria-label',d?'Switch to light mode':'Switch to dark mode');};
+  try{const t=localStorage.getItem(KEY); if(t==='light'||t==='dark') root.dataset.theme=t;}catch(e){}
+  document.getElementById('themebtn').onclick=()=>{const n=cur()==='dark'?'light':'dark'; root.dataset.theme=n; try{localStorage.setItem(KEY,n);}catch(e){} paint();};
+  paint();
+  // Outside GitHub Pages or a local copy, link to the hosted prototype instead of embedding it
+  const h=location.hostname;
+  if(!(h.endsWith('github.io')||h===''||h==='localhost'||h==='127.0.0.1')){
+    const url='https://claude.ai/artifact/7JU8khUJHgd4xS9XuCaMJQ';
+    document.getElementById('proto-link').href=url;
+    document.getElementById('frame').outerHTML='<div class="card"><p class="muted" style="margin:0 0 12px">The embedded prototype runs on the GitHub Pages version of this page.</p><a class="btn" href="'+url+'" target="_blank" rel="noopener">Open the live prototype</a></div>';
+  }
+})();
+</script>
+</body>
+</html>
