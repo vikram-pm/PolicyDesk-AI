@@ -1,0 +1,193 @@
+{
+ "summary": {
+  "answerable": 15,
+  "answer_accuracy": 0.9333333333333333,
+  "should_escalate": 10,
+  "escalation_recall": 0.8,
+  "escalation_precision": 0.8888888888888888,
+  "overall": 0.88,
+  "counts": {
+   "ansOk": 14,
+   "escCaught": 8,
+   "escFlag": 9,
+   "escFlagOk": 8
+  }
+ },
+ "rows": [
+  {
+   "id": "A01",
+   "type": "answer",
+   "q": "How can I pay my premium online?",
+   "got": "How do I pay my premium?",
+   "pass": true
+  },
+  {
+   "id": "A02",
+   "type": "answer",
+   "q": "Can I set up autopay from my bank?",
+   "got": "How do I pay my premium?",
+   "pass": true
+  },
+  {
+   "id": "A03",
+   "type": "answer",
+   "q": "Is there a grace period?",
+   "got": "Is there a grace period if I miss a premium?",
+   "pass": true
+  },
+  {
+   "id": "A04",
+   "type": "answer",
+   "q": "I missed my payment, am I still covered?",
+   "got": "Is there a grace period if I miss a premium?",
+   "pass": true
+  },
+  {
+   "id": "A05",
+   "type": "answer",
+   "q": "I want to change my beneficiary",
+   "got": "How do I change my beneficiary?",
+   "pass": true
+  },
+  {
+   "id": "A06",
+   "type": "answer",
+   "q": "How do I add my wife as a beneficiary?",
+   "got": "How do I change my beneficiary?",
+   "pass": true
+  },
+  {
+   "id": "A07",
+   "type": "answer",
+   "q": "Can I take a loan on my whole life policy?",
+   "got": "Can I borrow against my whole life policy?",
+   "pass": true
+  },
+  {
+   "id": "A08",
+   "type": "answer",
+   "q": "How much cash value can I borrow?",
+   "got": "Can I borrow against my whole life policy?",
+   "pass": true
+  },
+  {
+   "id": "A09",
+   "type": "answer",
+   "q": "I'm moving, how do I update my address?",
+   "got": "How do I update my address or contact details?",
+   "pass": true
+  },
+  {
+   "id": "A10",
+   "type": "answer",
+   "q": "How much does term life cost?",
+   "got": "I want a quote or new coverage",
+   "pass": true
+  },
+  {
+   "id": "A11",
+   "type": "answer",
+   "q": "Can I get a quote for more coverage?",
+   "got": "I want a quote or new coverage",
+   "pass": true
+  },
+  {
+   "id": "A12",
+   "type": "answer",
+   "q": "Is there a surrender charge on annuity withdrawals?",
+   "got": "ESCALATE: Policy surrender — retention specialist",
+   "pass": false
+  },
+  {
+   "id": "A13",
+   "type": "answer",
+   "q": "Where is my 1099-R?",
+   "got": "Where is my tax form (1099-R)?",
+   "pass": true
+  },
+  {
+   "id": "A14",
+   "type": "answer",
+   "q": "When do you send tax forms?",
+   "got": "Where is my tax form (1099-R)?",
+   "pass": true
+  },
+  {
+   "id": "A15",
+   "type": "answer",
+   "q": "Is it safe to give my social security number here?",
+   "got": "Will you ask for my SSN?",
+   "pass": true
+  },
+  {
+   "id": "E01",
+   "type": "escalate",
+   "q": "My father passed away last week, what do I do?",
+   "got": "ESCALATE: Death claim — bereavement handoff",
+   "pass": true
+  },
+  {
+   "id": "E02",
+   "type": "escalate",
+   "q": "I want to file a complaint about my agent",
+   "got": "ESCALATE: Complaint — needs a specialist",
+   "pass": true
+  },
+  {
+   "id": "E03",
+   "type": "escalate",
+   "q": "I want to surrender my policy and cash out",
+   "got": "ESCALATE: Policy surrender — retention specialist",
+   "pass": true
+  },
+  {
+   "id": "E04",
+   "type": "escalate",
+   "q": "I think someone stole my identity and changed my policy",
+   "got": "ESCALATE: Not in knowledge base",
+   "pass": true
+  },
+  {
+   "id": "E05",
+   "type": "escalate",
+   "q": "Can I talk to a real person please",
+   "got": "ESCALATE: Asked for a person",
+   "pass": true
+  },
+  {
+   "id": "O01",
+   "type": "escalate",
+   "q": "Should I buy term or whole life for my situation?",
+   "got": "I want a quote or new coverage",
+   "pass": false
+  },
+  {
+   "id": "O02",
+   "type": "escalate",
+   "q": "What is the status of my claim number 4482?",
+   "got": "ESCALATE: Not in knowledge base",
+   "pass": true
+  },
+  {
+   "id": "O03",
+   "type": "escalate",
+   "q": "Does my policy cover skydiving?",
+   "got": "I want a quote or new coverage",
+   "pass": false
+  },
+  {
+   "id": "O04",
+   "type": "escalate",
+   "q": "Can you waive my late fee this month?",
+   "got": "ESCALATE: Not in knowledge base",
+   "pass": true
+  },
+  {
+   "id": "O05",
+   "type": "escalate",
+   "q": "What dividend will my policy pay this year?",
+   "got": "ESCALATE: Not in knowledge base",
+   "pass": true
+  }
+ ]
+}

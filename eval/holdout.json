@@ -1,0 +1,12 @@
+[
+{"id":"H01","expect":"answer","kb":"How do I pay my premium?","q":"What ways can I pay my bill?"},
+{"id":"H02","expect":"answer","kb":"Is there a grace period if I miss a premium?","q":"Will my policy lapse if I pay late?"},
+{"id":"H03","expect":"answer","kb":"How do I change my beneficiary?","q":"Remove my ex-husband as beneficiary"},
+{"id":"H04","expect":"answer","kb":"How do I update my address or contact details?","q":"I got a new phone number"},
+{"id":"H05","expect":"answer","kb":"Where is my tax form (1099-R)?","q":"I need my IRS statement for taxes"},
+{"id":"H06","expect":"answer","kb":"How do I reach a person?","q":"What are your phone hours?"},
+{"id":"H07","expect":"escalate","q":"My husband died yesterday"},
+{"id":"H08","expect":"escalate","q":"Is it worth converting my term policy?"},
+{"id":"H09","expect":"escalate","q":"I didn't authorize this withdrawal"},
+{"id":"H10","expect":"escalate","q":"Why was my premium increased this year?"}
+]

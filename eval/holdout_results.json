@@ -1,0 +1,88 @@
+{
+ "summary": {
+  "answerable": 6,
+  "answer_accuracy": 0.8333333333333334,
+  "should_escalate": 4,
+  "escalation_recall": 1,
+  "escalation_precision": 0.8,
+  "overall": 0.9,
+  "counts": {
+   "ansOk": 5,
+   "escCaught": 4,
+   "escFlag": 5,
+   "escFlagOk": 4
+  }
+ },
+ "rows": [
+  {
+   "id": "H01",
+   "type": "answer",
+   "q": "What ways can I pay my bill?",
+   "got": "How do I pay my premium?",
+   "pass": true
+  },
+  {
+   "id": "H02",
+   "type": "answer",
+   "q": "Will my policy lapse if I pay late?",
+   "got": "Is there a grace period if I miss a premium?",
+   "pass": true
+  },
+  {
+   "id": "H03",
+   "type": "answer",
+   "q": "Remove my ex-husband as beneficiary",
+   "got": "How do I change my beneficiary?",
+   "pass": true
+  },
+  {
+   "id": "H04",
+   "type": "answer",
+   "q": "I got a new phone number",
+   "got": "ESCALATE: Not in knowledge base",
+   "pass": false
+  },
+  {
+   "id": "H05",
+   "type": "answer",
+   "q": "I need my IRS statement for taxes",
+   "got": "Where is my tax form (1099-R)?",
+   "pass": true
+  },
+  {
+   "id": "H06",
+   "type": "answer",
+   "q": "What are your phone hours?",
+   "got": "How do I reach a person?",
+   "pass": true
+  },
+  {
+   "id": "H07",
+   "type": "escalate",
+   "q": "My husband died yesterday",
+   "got": "ESCALATE: Death claim — bereavement handoff",
+   "pass": true
+  },
+  {
+   "id": "H08",
+   "type": "escalate",
+   "q": "Is it worth converting my term policy?",
+   "got": "ESCALATE: Advice request — licensed professional",
+   "pass": true
+  },
+  {
+   "id": "H09",
+   "type": "escalate",
+   "q": "I didn't authorize this withdrawal",
+   "got": "ESCALATE: Possible fraud — security team",
+   "pass": true
+  },
+  {
+   "id": "H10",
+   "type": "escalate",
+   "q": "Why was my premium increased this year?",
+   "got": "ESCALATE: Not in knowledge base",
+   "pass": true
+  }
+ ]
+}
