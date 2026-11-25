@@ -1,8 +1,8 @@
 # PRD — PolicyDesk AI (Project 05)
 
-**Owner:** Vikram Seenivasan, AI Product Manager · **Client (concept):** New York Life · **Status:** MVP prototype
+**Owner:** Vikram Seenivasan, AI Product Manager · **Client (concept):** Acme Life (fictional insurer) · **Status:** MVP prototype
 
-> Portfolio concept. Not affiliated with or endorsed by New York Life. All data and figures are illustrative.
+> Portfolio concept. Acme Life is fictional; not affiliated with any real insurer or employer. All data and figures are illustrative.
 
 ## 1. Problem
 Routine service questions (premiums, grace periods, beneficiaries, tax forms, address changes) arrive at all hours and crowd the same queues as sensitive cases such as death claims. Policyholders wait for simple answers, and the cases that need a person don't get priority.

@@ -1,6 +1,6 @@
 # PolicyDesk AI — 24/7 AI service desk for life insurance
 
-AI PM portfolio **Project 05** by Vikram Seenivasan. Concept for New York Life, built as a proof of concept.
+AI PM portfolio **Project 05** by Vikram Seenivasan. Concept for a fictional insurer, Acme Life, built as a proof of concept.
 
 - **Case study:** https://vikram-pm.github.io/PolicyDesk-AI/
 - **Live prototype:** https://vikram-pm.github.io/PolicyDesk-AI/prototype/
@@ -28,4 +28,4 @@ node run_eval.js holdout.json   # 10 unseen questions
 ## Notes
 - On GitHub Pages the prototype uses its built-in rules engine. The Claude-hosted version answers with live AI grounded in the same knowledge base.
 - Voice calls need Chrome or Edge and microphone access.
-- Not affiliated with or endorsed by New York Life. All data is illustrative.
+- Acme Life is fictional; not affiliated with any real insurer or employer. All data is illustrative.

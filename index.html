@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PolicyDesk AI — End-to-end case study | Vikram Seenivasan</title>
-<meta name="description" content="AI PM case study, end to end: benchmark, PRD, design, development, AI tools and APIs, evaluation and rollout for a 24/7 insurance service assistant. Concept for New York Life.">
+<meta name="description" content="AI PM case study, end to end: benchmark, PRD, design, development, AI tools and APIs, evaluation and rollout for a 24/7 insurance service assistant. Concept for a fictional insurer, Acme Life.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -99,7 +99,7 @@ footer{padding:36px 0 60px;color:var(--muted);font-size:.84rem;border-top:1px so
 <section class="hero" style="border-top:0">
   <div class="kicker">AI Product Manager case study, Project 05</div>
   <h1 class="display">PolicyDesk AI <span>a 24/7 service desk for life insurance</span></h1>
-  <p class="lede">An end-to-end build: from benchmarking an SMB AI front desk, through the PRD, design, development and AI evaluation, to a working MVP with chat, voice, email and agent booking. Concept for New York Life.</p>
+  <p class="lede">An end-to-end build: from benchmarking an SMB AI front desk, through the PRD, design, development and AI evaluation, to a working MVP with chat, voice, email and agent booking. Concept for a fictional insurer, Acme Life.</p>
   <a class="btn" id="proto-link" href="prototype/">Open the live prototype</a><a class="btn ghost" href="https://github.com/vikram-pm/PolicyDesk-AI/blob/main/PRD.md">Read the PRD</a><a class="btn ghost" href="https://github.com/vikram-pm/PolicyDesk-AI/tree/main/eval">Evaluation files</a>
   <div class="meta">
     <div class="glass"><span>Role</span><b>AI Product Manager (solo)</b></div>
@@ -180,10 +180,10 @@ footer{padding:36px 0 60px;color:var(--muted);font-size:.84rem;border-top:1px so
   <h2>Design: calm, trustworthy, on brand</h2>
   <div class="grid g2">
     <div class="card"><h3>Version 1: Navy palette</h3><p class="muted">First MVP in midnight blue and cyan, built to prove the flows end to end. Single-column landing page with a floating widget.</p></div>
-    <div class="card" id="design-v2"><h3>Version 2: New York Life brand, reference layout</h3><p class="muted">Restyled to a New York Life-style navy and blue, softened with pastel gradients from a chatbot UI reference: serif display headline, floating performance and upload cards, a three-column console (navigation, live chat, AI settings) and a mobile preview.</p></div>
+    <div class="card" id="design-v2"><h3>Version 2: Insurer-style brand, reference layout</h3><p class="muted">Restyled to a classic insurer-style navy and blue, softened with pastel gradients from a chatbot UI reference: serif display headline, floating performance and upload cards, a three-column console (navigation, live chat, AI settings) and a mobile preview.</p></div>
   </div>
   <div class="grid g3" style="margin-top:14px">
-    <div class="card"><h3>Colour tokens</h3><div class="swatches"><span class="sw"><i style="background:#0B2D59"></i>Navy</span><span class="sw"><i style="background:#0067B1"></i>Blue</span><span class="sw"><i style="background:#3DA9E0"></i>Sky</span><span class="sw"><i style="background:#7B6FE0"></i>Violet</span><span class="sw"><i style="background:#E7889B"></i>Rose</span></div><p class="note" style="margin-top:10px">Approximations; swap in official brand values for a real engagement. No New York Life logos used.</p></div>
+    <div class="card"><h3>Colour tokens</h3><div class="swatches"><span class="sw"><i style="background:#0B2D59"></i>Navy</span><span class="sw"><i style="background:#0067B1"></i>Blue</span><span class="sw"><i style="background:#3DA9E0"></i>Sky</span><span class="sw"><i style="background:#7B6FE0"></i>Violet</span><span class="sw"><i style="background:#E7889B"></i>Rose</span></div><p class="note" style="margin-top:10px">Approximations; swap in a real client’s brand values for a real engagement. No real insurer logos used.</p></div>
     <div class="card"><h3>Type</h3><p class="muted"><b style="font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:1.3rem">DM Serif Display</b> for headlines, Plus Jakarta Sans for interface text. Both from Google Fonts.</p></div>
     <div class="card"><h3>Quality floor</h3><p class="muted">Light and dark themes with a toggle, responsive to 390 px, visible keyboard focus, reduced-motion support.</p></div>
   </div>
@@ -211,7 +211,7 @@ footer{padding:36px 0 60px;color:var(--muted);font-size:.84rem;border-top:1px so
     <div class="card"><h3>Deliberately simple stack</h3><p class="muted">One HTML file, vanilla JavaScript, no build step and no backend. State lives in the browser so anyone can run the full demo, and it resets cleanly.</p></div>
   </div>
   <h3 style="margin-top:20px">Prompt contract for the live engine</h3>
-<pre>You are {name}, the 24/7 service assistant for New York Life policyholders.
+<pre>You are {name}, the 24/7 service assistant for Acme Life policyholders.
 Answer ONLY using the knowledge base below. Tone: {tone}. {creativity rule} {language}.
 Rules: never give personalised financial, tax or legal advice; never ask for SSN,
 bank details or policy number; if the topic is {handoff list}, a request for a person,
@@ -288,7 +288,7 @@ Return ONLY JSON: {"reply","escalate","reason","source","offerBooking"}</pre>
   <div class="stage"><i>6–7</i>Iterate and implement</div>
   <h2>From MVP to pilot</h2>
   <div class="grid g3">
-    <div class="card"><h3>Iteration log</h3><ul class="tight muted"><li>Added advice and policy-specific handoff rules after eval</li><li>Rebranded to New York Life style and reference layout</li><li>Added light and dark mode toggle</li><li>Fixed mobile overflow in the portal</li><li>Removed source labels from escalated replies</li></ul></div>
+    <div class="card"><h3>Iteration log</h3><ul class="tight muted"><li>Added advice and policy-specific handoff rules after eval</li><li>Rebranded to an insurer-style palette and reference layout</li><li>Added light and dark mode toggle</li><li>Fixed mobile overflow in the portal</li><li>Removed source labels from escalated replies</li></ul></div>
     <div class="card"><h3>Deployment today</h3><ul class="tight muted"><li>Static site on GitHub Pages, no server</li><li>Live AI version on claude.ai</li><li>Eval runs locally with Node</li></ul></div>
     <div class="card"><h3>Rollout plan</h3><ul class="tight muted"><li><b>Pilot, 8 weeks:</b> chat and email, one service line, every escalation reviewed</li><li><b>Phase 2:</b> telephony, CRM sync, agent calendar, identity verification</li><li><b>Phase 3:</b> read-only policy lookup, multilingual, SMS reminders</li></ul></div>
   </div>
@@ -308,7 +308,7 @@ Return ONLY JSON: {"reply","escalate","reason","source","offerBooking"}</pre>
     <div class="card"><span class="big">4.6×</span><p class="muted"><b>Base:</b> 150K a month, 40% resolved, $6.50 per contact, about $4.1M a year</p></div>
     <div class="card"><span class="big">13×</span><p class="muted"><b>High:</b> 250K a month, 55% resolved, $8.00 per contact</p></div>
   </div>
-  <p class="note" style="margin-top:10px">Assumptions: $0.80 per AI-handled contact; $900K year-1 cost. Volumes are illustrative, not New York Life data.</p>
+  <p class="note" style="margin-top:10px">Assumptions: $0.80 per AI-handled contact; $900K year-1 cost. Volumes are illustrative, not real insurer data.</p>
 </section>
 
 <section>
@@ -321,7 +321,7 @@ Return ONLY JSON: {"reply","escalate","reason","source","offerBooking"}</pre>
 </section>
 </main>
 
-<footer><div class="wrap">Vikram Seenivasan, AI Product Manager. Portfolio concept project. New York Life is named as the illustrative client; this work is not affiliated with, endorsed by or connected to New York Life. All data, phone numbers and policy terms are placeholders.</div></footer>
+<footer><div class="wrap">Vikram Seenivasan, AI Product Manager. Portfolio concept project. Acme Life is a fictional insurer; this work is not affiliated with any real insurer or employer. All data, phone numbers and policy terms are placeholders.</div></footer>
 
 <script>
 (function(){

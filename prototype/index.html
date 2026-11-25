@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PolicyDesk AI — New York Life POC</title>
+<title>PolicyDesk AI — Acme Life POC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -352,7 +352,7 @@ textarea{min-height:110px;resize:vertical}
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#home" aria-label="PolicyDesk home"><span class="mark"><svg data-i="shield"></svg></span><span>PolicyDesk AI<small>Service assistant concept for New York Life</small></span></a>
+    <a class="brand" href="#home" aria-label="PolicyDesk home"><span class="mark"><svg data-i="shield"></svg></span><span>PolicyDesk AI<small>Service assistant concept for Acme Life</small></span></a>
     <nav aria-label="Main">
       <a href="#home" id="nav-home" class="hide-s">Product</a>
       <a href="#overview" id="nav-portal">Service portal</a>
@@ -367,7 +367,7 @@ textarea{min-height:110px;resize:vertical}
   <section class="hero">
     <div>
       <div class="kicker"><span class="orbmark"><svg data-i="spark"></svg></span><span>Every policyholder answered.<br>Every hard moment handed to a person.</span></div>
-      <h1 class="display"><span>AI Service Desk</span><span class="g">for New York Life</span></h1>
+      <h1 class="display"><span>AI Service Desk</span><span class="g">for Acme Life</span></h1>
       <p class="lede">One calm assistant for chat, calls, email and agent reviews, built on approved answers.</p>
       <div class="feats">
         <div class="feat"><i><svg data-i="chat"></svg></i><span>Instant<br>answers</span></div>
@@ -407,7 +407,7 @@ textarea{min-height:110px;resize:vertical}
       <a class="navlink" href="#reviews"><svg class="ico" data-i="calendar"></svg>Agent reviews</a>
       <a class="navlink" href="#assistant"><svg class="ico" data-i="gear"></svg>Setup</a>
       <div class="plan"><b><svg class="ico" data-i="diamond" style="color:#E7889B"></svg>Pilot plan</b><p>One service line, approved FAQs, every handoff reviewed.</p><a class="btn small" href="#overview">Open portal</a></div>
-      <div class="who"><span class="av">ST</span><div><b>Service team</b><span>NYL POC workspace</span></div></div>
+      <div class="who"><span class="av">ST</span><div><b>Service team</b><span>Acme Life POC workspace</span></div></div>
     </aside>
     <div class="c-main">
       <div class="c-head"><span class="orbmark" style="width:36px;height:36px"><svg data-i="spark" style="width:16px;height:16px"></svg></span><div><b id="c-title">Policy service assistant</b><span class="online">Online, any hour</span></div><button class="btn quiet small" id="c-share"><svg data-i="share"></svg>Share</button></div>
@@ -505,11 +505,11 @@ textarea{min-height:110px;resize:vertical}
       <p class="muted">Estimated annual saving</p>
       <div class="big" id="o-save">$0</div>
       <p class="muted" id="o-detail" style="margin-top:12px"></p>
-      <p class="muted" style="font-size:.78rem">Illustrative assumptions for discussion, not New York Life data.</p>
+      <p class="muted" style="font-size:.78rem">Illustrative assumptions for discussion, not real insurer data.</p>
     </div>
   </section>
 
-  <footer>PolicyDesk AI is a portfolio proof of concept. New York Life is named as the illustrative client; this prototype is not affiliated with, endorsed by or connected to New York Life and uses no New York Life logos. Phone numbers, policy terms and data are placeholders.</footer>
+  <footer>PolicyDesk AI is a portfolio proof of concept. Acme Life is a fictional insurer; this prototype is not affiliated with any real insurer or employer. Phone numbers, policy terms and data are placeholders.</footer>
 </main>
 
 <!-- ================= PORTAL ================= -->
@@ -527,7 +527,7 @@ textarea{min-height:110px;resize:vertical}
       <a class="navlink" href="#knowledge" data-pane="knowledge"><svg class="ico" data-i="book"></svg>Knowledge</a>
       <a class="navlink" href="#assistant" data-pane="assistant"><svg class="ico" data-i="gear"></svg>Setup</a>
       <div class="plan"><b><svg class="ico" data-i="diamond" style="color:#E7889B"></svg>Pilot plan</b><p id="engine-note2">Checking AI engine…</p></div>
-      <div class="who"><span class="av">ST</span><div><b>Service team</b><span>NYL POC workspace</span></div></div>
+      <div class="who"><span class="av">ST</span><div><b>Service team</b><span>Acme Life POC workspace</span></div></div>
     </aside>
     <div class="pane" id="pane"></div>
   </div>
@@ -536,7 +536,7 @@ textarea{min-height:110px;resize:vertical}
 <!-- ================= WIDGET ================= -->
 <button class="launcher" id="launcher" aria-label="Open the PolicyDesk assistant" aria-expanded="false"><svg data-i="spark"></svg></button>
 <div class="wpanel" id="panel" role="dialog" aria-label="PolicyDesk assistant">
-  <div class="wh"><span class="orbmark"><svg data-i="spark"></svg></span><div><b id="w-name">Nora</b><span class="online">New York Life service assistant</span></div><button id="w-close" aria-label="Close">×</button></div>
+  <div class="wh"><span class="orbmark"><svg data-i="spark"></svg></span><div><b id="w-name">Nora</b><span class="online">Acme Life service assistant</span></div><button id="w-close" aria-label="Close">×</button></div>
   <div class="tabs" role="tablist">
     <button role="tab" data-tab="chat" aria-selected="true">Chat</button>
     <button role="tab" data-tab="call" aria-selected="false">Call</button>
@@ -619,7 +619,7 @@ const PHONE = '1-800-555-0142';
 function seed(){
   const t = now();
   return {
-    settings:{ name:'Nora', greeting:'Hi, I’m Nora, New York Life’s service assistant. I can help with premiums, beneficiaries, claims, forms and booking time with an agent. What can I do for you?', tone:'warm', engine:'auto', lang:'en', creativity:40,
+    settings:{ name:'Nora', greeting:'Hi, I’m Nora, Acme Life’s service assistant. I can help with premiums, beneficiaries, claims, forms and booking time with an agent. What can I do for you?', tone:'warm', engine:'auto', lang:'en', creativity:40,
       handoff:{death:true, complaint:true, surrender:true, fraud:true, unknown:true}, hours:'Specialists: Mon–Fri, 8 AM–8 PM ET' },
     kbUpdated:t-2*HOUR,
     kb:[
@@ -648,7 +648,7 @@ function seed(){
       {id:uid(), name:'Priya Raman', email:'priya.r@example.com', phone:'(555) 019-4410', topic:'New coverage / quote', slot:nextSlot(1,'10:30'), status:'confirmed', created:t-6*HOUR, source:'Review booking'}
     ],
     emails:[
-      {id:uid(), from:'David Chen', email:'dchen@example.com', subject:'Where is my 1099-R?', body:'Hi, I haven’t received my 1099-R for my annuity yet. Can you tell me where to find it?', received:t-20*HOUR, status:'replied', replySecs:31, source:'Where is my tax form (1099-R)?', reply:'Hi David,\n\nThanks for reaching out. Tax forms such as the 1099-R are mailed by January 31 and are also available to download in your online account under Documents.\n\nKind regards,\nNora, New York Life service assistant'},
+      {id:uid(), from:'David Chen', email:'dchen@example.com', subject:'Where is my 1099-R?', body:'Hi, I haven’t received my 1099-R for my annuity yet. Can you tell me where to find it?', received:t-20*HOUR, status:'replied', replySecs:31, source:'Where is my tax form (1099-R)?', reply:'Hi David,\n\nThanks for reaching out. Tax forms such as the 1099-R are mailed by January 31 and are also available to download in your online account under Documents.\n\nKind regards,\nNora, Acme Life service assistant'},
       {id:uid(), from:'Linda Brooks', email:'lbrooks@example.com', subject:'Claim for my father', body:'Hello, my father passed away last week. He had a life policy with you and I am listed as beneficiary. What do I need to do?', received:t-3*HOUR, status:'review', reply:''}
     ],
     queue:[],
@@ -659,10 +659,10 @@ function businessDays(n){const out=[]; const d=new Date(); d.setHours(0,0,0,0); 
 function nextSlot(daysAhead, hm){const d=businessDays(6)[daysAhead]; const [h,m]=hm.split(':').map(Number); const x=new Date(d); x.setHours(h,m,0,0); return x.getTime();}
 
 /* ---------- State ---------- */
-const KEY='policydesk-nyl-v2';
+const KEY='policydesk-acme-v2';
 let S;
 try{ S = JSON.parse(localStorage.getItem(KEY)||'null'); }catch(e){ S=null; }
-if(!S){ S = seed(); const lb=S.emails[1]; S.queue.push({id:uid(), channel:'Email', ref:lb.id, contact:lb.from, reason:'Death claim — bereavement handoff', question:lb.body, draft:'Dear Linda,\n\nI’m so sorry about your father. I’ve asked a claims specialist to contact you directly. To help them, it’s useful to have his policy number if you have it and a certified death certificate. There is no rush; we’ll guide you through each step.\n\nWith sympathy,\nNew York Life Service', created:lb.received}); }
+if(!S){ S = seed(); const lb=S.emails[1]; S.queue.push({id:uid(), channel:'Email', ref:lb.id, contact:lb.from, reason:'Death claim — bereavement handoff', question:lb.body, draft:'Dear Linda,\n\nI’m so sorry about your father. I’ve asked a claims specialist to contact you directly. To help them, it’s useful to have his policy number if you have it and a certified death certificate. There is no rush; we’ll guide you through each step.\n\nWith sympathy,\nAcme Life Service', created:lb.received}); }
 S.settings = Object.assign(seed().settings, S.settings||{});
 function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
@@ -735,8 +735,8 @@ async function answer(text, channel, history){
   const c = S.settings.creativity, style = c<34 ? 'Stay very close to the knowledge-base wording.' : c<67 ? 'Paraphrase naturally but keep every fact exact.' : 'Write conversationally, but never add facts beyond the knowledge base.';
   const lang = S.settings.lang==='es' ? 'Reply in Spanish (US).' : 'Reply in English (US).';
   const hist = (history||[]).slice(-8).map(m=>`${m.from==='user'?'Customer':'Assistant'}: ${m.text}`).join('\n');
-  const prompt = `You are ${S.settings.name}, the 24/7 service assistant for New York Life policyholders (proof-of-concept, illustrative data).
-Answer ONLY using the knowledge base below. Tone: ${tone}. ${style} ${lang} Channel: ${channel}${channel==='voice'?' (spoken: max 2 short sentences, no lists, no symbols)':''}${channel==='email'?' (write a complete email reply body with greeting and sign-off as "'+S.settings.name+', New York Life service assistant")':''}.
+  const prompt = `You are ${S.settings.name}, the 24/7 service assistant for Acme Life policyholders (proof-of-concept, illustrative data).
+Answer ONLY using the knowledge base below. Tone: ${tone}. ${style} ${lang} Channel: ${channel}${channel==='voice'?' (spoken: max 2 short sentences, no lists, no symbols)':''}${channel==='email'?' (write a complete email reply body with greeting and sign-off as "'+S.settings.name+', Acme Life service assistant")':''}.
 Rules: never give personalised financial, tax or legal advice; never ask for a full SSN, bank details or policy number in this channel; if the customer asks about ${handoffs}, asks for a person, asks for personal advice ("should I…"), or asks something that needs their specific policy details, set escalate=true and reply with empathy explaining a specialist will follow up. Offer booking a review with a licensed financial professional when they ask about quotes, new coverage or reviews. Specialist hours: ${S.settings.hours}. Phone: ${PHONE}.
 
 KNOWLEDGE BASE:
@@ -846,7 +846,7 @@ $('#call-start').onclick=async()=>{
   inCall=true; callConv={id:uid(), channel:'Voice', contact:'Browser caller', status:'open', started:now(), messages:[]}; S.convs.unshift(callConv);
   $('#call-log').innerHTML=''; $('#call-start').hidden=true; $('#call-end').hidden=false; $('#call-type').hidden=!!SR;
   callStart=now(); callTimer=setInterval(()=>{const s=Math.floor((now()-callStart)/1000); $('#call-time').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');},500);
-  const g='Thanks for calling New York Life. This is '+S.settings.name+'. How can I help?';
+  const g='Thanks for calling Acme Life. This is '+S.settings.name+'. How can I help?';
   msg($('#call-log'),'ai',g); callConv.messages.push({from:'ai',text:g,t:now()});
   busy=true; setStatus('Speaking…'); await speak(g); busy=false;
   if(SR) listen(); else setStatus('Voice input isn’t supported in this browser. Type below.');
@@ -866,7 +866,7 @@ const SLOTS=['9:00','10:30','13:00','14:30','16:00'];
 function slotTime(dayIdx, hm){ const d=businessDays(5)[dayIdx]; const [h,m]=hm.split(':').map(Number); const x=new Date(d); x.setHours(h,m,0,0); return x.getTime(); }
 function renderBook(done){
   const area=$('#book-area');
-  if(done){ area.innerHTML=`<div class="notice"><b>You’re booked.</b><br>${esc(fmtDay(done.slot))} at ${esc(fmtTime(done.slot))} with a licensed financial professional.<br>A confirmation was sent to ${esc(done.email)}.</div><div class="mail"><h4>Confirmation email preview</h4>Hi ${esc(done.name.split(' ')[0])},\n\nYour ${esc(done.topic.toLowerCase())} is confirmed for ${esc(fmtDay(done.slot))} at ${esc(fmtTime(done.slot))} (phone call). Need to change it? Reply to this email or chat with ${esc(S.settings.name)} any time.\n\nNew York Life Service</div><div class="row-actions"><button class="btn small quiet" id="bk-again">Book another</button></div>`; $('#bk-again').onclick=()=>{bk={day:0,slot:null};renderBook();}; return; }
+  if(done){ area.innerHTML=`<div class="notice"><b>You’re booked.</b><br>${esc(fmtDay(done.slot))} at ${esc(fmtTime(done.slot))} with a licensed financial professional.<br>A confirmation was sent to ${esc(done.email)}.</div><div class="mail"><h4>Confirmation email preview</h4>Hi ${esc(done.name.split(' ')[0])},\n\nYour ${esc(done.topic.toLowerCase())} is confirmed for ${esc(fmtDay(done.slot))} at ${esc(fmtTime(done.slot))} (phone call). Need to change it? Reply to this email or chat with ${esc(S.settings.name)} any time.\n\nAcme Life Service</div><div class="row-actions"><button class="btn small quiet" id="bk-again">Book another</button></div>`; $('#bk-again').onclick=()=>{bk={day:0,slot:null};renderBook();}; return; }
   const days=businessDays(5);
   const taken=new Set(S.bookings.filter(b=>b.status!=='cancelled').map(b=>b.slot));
   area.innerHTML=`<h3>Book a policy review</h3><p class="muted" style="font-size:.86rem">30-minute phone call with a licensed financial professional.</p>
@@ -917,9 +917,9 @@ async function processEmail(m){
   const t0=now();
   const r = await answer(m.subject+'\n\n'+m.body+'\n\nFrom: '+m.from,'email',[]);
   let reply=r.reply; const first=m.from.split(' ')[0];
-  if(!liveOn() && !r.escalate) reply=`Hi ${first},\n\nThanks for reaching out. ${r.reply}\n\nKind regards,\n${S.settings.name}, New York Life service assistant`;
+  if(!liveOn() && !r.escalate) reply=`Hi ${first},\n\nThanks for reaching out. ${r.reply}\n\nKind regards,\n${S.settings.name}, Acme Life service assistant`;
   m.replySecs = Math.max(18, Math.round((now()-t0)/1000) + 20 + Math.floor(Math.random()*12));
-  if(r.escalate){ m.status='review'; m.reply=''; addQueue({channel:'Email', ref:m.id, contact:m.from, reason:r.reason||'Flagged', question:m.subject+' — '+m.body, draft: liveOn() ? reply : (r.reason?.startsWith('Death')?`Dear ${first},\n\nI’m so sorry for your loss. A claims specialist will contact you personally to guide you through next steps. If you have the policy number and a certified death certificate, those will help.\n\nWith sympathy,\nNew York Life Service`:`Hi ${first},\n\n`)}); }
+  if(r.escalate){ m.status='review'; m.reply=''; addQueue({channel:'Email', ref:m.id, contact:m.from, reason:r.reason||'Flagged', question:m.subject+' — '+m.body, draft: liveOn() ? reply : (r.reason?.startsWith('Death')?`Dear ${first},\n\nI’m so sorry for your loss. A claims specialist will contact you personally to guide you through next steps. If you have the policy number and a certified death certificate, those will help.\n\nWith sympathy,\nAcme Life Service`:`Hi ${first},\n\n`)}); }
   else { m.status='replied'; m.reply=reply; m.source=r.source; }
   save(); refreshPortal();
 }
@@ -1098,7 +1098,7 @@ function renderPane(p){
       <div id="qr" style="margin-top:14px"></div>
       <h3 style="margin-top:22px">Website embed</h3><p class="muted" style="font-size:.84rem">One script tag on the site (production rollout).</p>
       <pre style="background:var(--surface2);padding:12px;border-radius:10px;overflow-x:auto;font-size:.78rem">&lt;script src="https://policydesk.example/widget.js"
-  data-tenant="nyl-poc" async&gt;&lt;/script&gt;</pre>
+  data-tenant="acme-poc" async&gt;&lt;/script&gt;</pre>
       <h3 style="margin-top:22px">Demo data</h3><button class="btn small danger" id="s-reset">Reset demo data</button>
     </div></div>`;
     $('#s-tone').value=s.tone;
