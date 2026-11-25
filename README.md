@@ -1,6 +1,6 @@
 # PolicyDesk AI — 24/7 AI service desk for life insurance
 
-AI PM portfolio **Project 05** by Vikram Seenivasan. Concept for New York Life, built as a Cognizant proof of concept.
+AI PM portfolio **Project 05** by Vikram Seenivasan. Concept for New York Life, built as a proof of concept.
 
 - **Case study:** https://vikram-pm.github.io/PolicyDesk-AI/
 - **Live prototype:** https://vikram-pm.github.io/PolicyDesk-AI/prototype/

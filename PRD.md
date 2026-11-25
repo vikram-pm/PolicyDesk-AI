@@ -1,6 +1,6 @@
 # PRD — PolicyDesk AI (Project 05)
 
-**Owner:** Vikram Seenivasan, AI Product Manager · **Client (concept):** New York Life · **Delivery:** Cognizant POC · **Status:** MVP prototype
+**Owner:** Vikram Seenivasan, AI Product Manager · **Client (concept):** New York Life · **Status:** MVP prototype
 
 > Portfolio concept. Not affiliated with or endorsed by New York Life. All data and figures are illustrative.
 
